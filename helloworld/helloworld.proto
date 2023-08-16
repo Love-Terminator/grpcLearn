@@ -1,12 +1,13 @@
 syntax = "proto3";
 
-option java_multiple_files = true;
-option java_outer_classname = "HelloWorldProto";
+//option java_multiple_files = true;
+//option java_outer_classname = "HelloWorldProto";
 
 package helloworld;
 
 // ./ 指定*.pb.go文件的生成目录。helloworld和package保持一致
 option go_package="./;helloworld";
+
 
 service Greet {
   rpc SayHello (HelloRequest) returns (HelloReply) {}
