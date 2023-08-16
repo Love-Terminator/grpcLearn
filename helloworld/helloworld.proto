@@ -1,19 +1,22 @@
+// rpc协议采用的版本
 syntax = "proto3";
-
-//option java_multiple_files = true;
-//option java_outer_classname = "HelloWorldProto";
 
 package helloworld;
 
 // ./ 指定*.pb.go文件的生成目录。helloworld和package保持一致
 option go_package="./;helloworld";
 
+// rpc协议文件*.proto包含三个基本要素。service、message和enum。其中service和message是必须的
 
+// 定义rpc服务。关键字为service，名称为Greet，可自定义
+// 这个rpc服务提供了两个函数功能。名称分别为SayHello和SearchPeople。
+// HelloRequest和SearchRequest为请求消息体，HelloReply和SearchResponse为响应消息体。
 service Greet {
   rpc SayHello (HelloRequest) returns (HelloReply) {}
   rpc SearchPeople (SearchRequest) returns (SearchReponse) {}
 }
 
+// 枚举类
 enum Home{
   COUNTRY = 0;
   FATHER_COLOR = 1;
@@ -33,10 +36,12 @@ message SearchRequest{
   Home home = 3;
 }
 
+// 数字的参数编号，数字越小，代表参数使用频率越高。
 message SearchReponse{
   string People_Name = 1;
   int32 People_Age = 2;
   double People_High = 3;
   repeated string Hobbies = 4;
   bytes People_Read = 5;
+  map<string, string> People_Feature = 6;
 }

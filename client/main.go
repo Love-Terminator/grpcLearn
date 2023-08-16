@@ -46,5 +46,5 @@ func main() {
 	if err != nil {
 		log.Fatalf("couldn not greet: %v", err)
 	}
-	fmt.Println(people)
+	fmt.Println(people.GetHobbies())
 }
