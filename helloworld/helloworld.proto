@@ -11,6 +11,7 @@ option go_package="./;helloworld";
 
 service Greet {
   rpc SayHello (HelloRequest) returns (HelloReply) {}
+  rpc SearchPeople (SearchRequest) returns (SearchReponse) {}
 }
 
 message HelloReply {
@@ -19,4 +20,16 @@ message HelloReply {
 
 message HelloRequest {
   string name = 1;
+}
+
+message SearchRequest{
+  string People_Name = 1;
+  int32 People_Age = 2;
+}
+
+message SearchReponse{
+  string People_Name = 1;
+  int32 People_Age = 2;
+  double People_High = 3;
+  repeated string Hobbies = 4;
 }

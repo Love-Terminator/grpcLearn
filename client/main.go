@@ -21,6 +21,8 @@ func main() {
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)
 	}
+
+	// 结束之前关闭conn
 	defer conn.Close()
 
 	// 建立客户端
@@ -38,4 +40,11 @@ func main() {
 		log.Fatalf("couldn not greet: %v", err)
 	}
 	fmt.Println(r.Message)
+
+	// 调用服务端方法
+	people, err := client.SearchPeople(ctx, &pb.SearchRequest{People_Name: "Jack", People_Age: 18})
+	if err != nil {
+		log.Fatalf("couldn not greet: %v", err)
+	}
+	fmt.Println(people)
 }
