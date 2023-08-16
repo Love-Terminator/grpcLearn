@@ -42,7 +42,7 @@ func main() {
 	fmt.Println(r.Message)
 
 	// 调用服务端方法
-	people, err := client.SearchPeople(ctx, &pb.SearchRequest{People_Name: "Jack", People_Age: 18})
+	people, err := client.SearchPeople(ctx, &pb.SearchRequest{People_Name: name, People_Age: 18})
 	if err != nil {
 		log.Fatalf("couldn not greet: %v", err)
 	}
