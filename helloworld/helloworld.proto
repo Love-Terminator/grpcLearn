@@ -14,6 +14,11 @@ service Greet {
   rpc SearchPeople (SearchRequest) returns (SearchReponse) {}
 }
 
+enum Home{
+  COUNTRY = 0;
+  FATHER_COLOR = 1;
+}
+
 message HelloReply {
   string message = 1;
 }
@@ -25,6 +30,7 @@ message HelloRequest {
 message SearchRequest{
   string People_Name = 1;
   int32 People_Age = 2;
+  Home home = 3;
 }
 
 message SearchReponse{
@@ -32,4 +38,5 @@ message SearchReponse{
   int32 People_Age = 2;
   double People_High = 3;
   repeated string Hobbies = 4;
+  bytes People_Read = 5;
 }
