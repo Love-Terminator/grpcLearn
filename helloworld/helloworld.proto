@@ -1,6 +1,8 @@
 // rpc协议采用的版本
 syntax = "proto3";
 
+// 执行该命令：protoc --go_out=. --go-grpc_out=. helloworld.proto。生成 *.pb.go 和 *_grbc.pb.go
+
 package helloworld;
 
 // ./ 指定*.pb.go文件的生成目录。helloworld和package保持一致
